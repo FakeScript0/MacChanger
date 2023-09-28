@@ -22,7 +22,16 @@ while True:
         subprocess.call(["ifconfig",interface,"down"])
         subprocess.call(["ifconfig",interface,"hw","ether",mac_adress])
         subprocess.call(["ifconfig",interface,"up"])
-        print("Mac Adresiniz Degistirildi")
+        mac=subprocess.check_output(["ifconfig",interface])
+        print("""
+        Melumat:
+        
+        
+        {}
+        
+        
+            """.format(mac))
+        print("\nMac Adresiniz Degistirildi")
         break
     elif n=="n" or n=="no" or n=="No":
         time.sleep(1)
